@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        var pixclPatio = 1/window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,initial-scale='+pixclPatio+',minimum-scale='+pixclPatio+',maximum-scale='+pixclPatio+',user-scalable=no" />');
+        var html = document.getElementsByTagName("html")[0];
+        var pagewidth = html.getBoundingClientRect().width;
+        html.style.fontSize = pagewidth/16 + "px";
+    </script>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- <meta http-equiv="Cache-control" content="no-cache" /> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>bargain</title>
+    <meta name="keywords" content="  " />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//g.alicdn.com/thx/cube/1.3.1/cube.min.css">
+    <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__PUBLIC__/newstyle.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="main_index">
+        <div>
+            <div>
+                <img src="__PUBLIC__/image/88658PICNuP_1024.jpg" alt="">
+
+            </div>
+            <div style="background-color: #ffd647;text-align: center;font-size: 16px;">
+                <p><span style="display: inline-block;width: 60%;background-color:#e69816">53453</span><span style="display: inline-block;width: 40%;">感恩价2元</span></p>
+                <p>活动结束倒计时 6天 23小时 26分 10秒</p>
+                <p>2017-06-05 16:10 到 2017-06-12 16:10</p>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div style="text-align: center">
+                <p>原价：<span>10元</span> 低价：<span>2元</span></p>
+                <button type="button" class="btn btn-info bs-example-modal" style="width: 90%;background-color: #00a7e4" @click="showhimodal()">帮他杀价</button>
+                <button type="button" class="btn btn-info  bs-example-modal-lg" style="width: 90%;background-color: #00a7e4" @click = "showmodal()">我也要玩</button>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>奖品描述</h3>
+                <p>本期奖品<span>1</span>份 剩余<span>1</span>份</p>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter" >
+                <h3>活动规则</h3>
+                <textarea class="form-control borderdashed" rows="3" style="width: 95%;background-color: #00a7e4;margin: 0 auto;color: #fff" readonly>
+                    1.点击上方按钮"我也要玩"参加活动。
+                   2.朋友也能帮你减
+                   3.奖品数量有限,达标就会减少一份,份数领完则无法继续报名,亲速度哦!
+                </textarea>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>领奖信息</h3>
+                <textarea class="form-control borderdashed" rows="3" style="width: 95%;background-color: #00a7e4;margin: 0 auto;color: #fff" readonly>
+                    领奖时间:
+                    领奖地址:
+                    领奖电话:
+                </textarea>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>机构介绍</h3>
+                <input type="email" class="form-control borderdashed" id="exampleInputEmail8" style="width: 95%;background-color: #00a7e4;margin: 0 auto;height: 300px" readonly>
+            </div>
+        </div>
+        <div class="activitytitle" style="margin-bottom: 5%">
+            <div class="activitycenter">
+                <h3>当前排名</h3>
+                <table class="table">
+                    <tr>
+                        <td>排名</td>
+                        <td>姓名</td>
+                        <td>目前价格</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>小红</td>
+                        <td>99</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="background-color: #fff;padding: 1% 0;text-align: center;position: fixed;bottom: 0;width: 100%">
+            <button type="button" class="btn btn-default" style="width:45%">预览活动</button>
+            <button type="button" class="btn btn-success " style="width: 45%">保存活动</button>
+        </div>
+        <!--我也要玩-->
+        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">所填信息不会公开,仅用于活动兑奖</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="exampleInputName9" style="display: inline-block;width:auto">姓名：</label>
+                        <input type="number" class="form-control borderdashed" min="1" max="10" id="exampleInputName9" placeholder="" style="display: inline-block;width:30%;background-color: #00a7e4;">
+                        <label for="exampleInputName10" style="display: inline-block;width:auto">手机号码：</label>
+                        <input type="number" class="form-control borderdashed" min="1" max="10" id="exampleInputName10" placeholder="" style="display: inline-block;width:30%;background-color: #00a7e4;">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--帮他杀价-->
+        <div class="modal fade" id="hiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">所填信息不会公开,仅用于活动兑奖</h4>
+                    </div>
+                    <div class="modal-body">
+                        杀价：5元
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var main = new Vue({
+                "el" : "#main_index",
+                "data" : {},
+                "watch" : {
+                    "screen.major_categories" : function(){ this._init(1); }
+                    ,"base.order.tabs" : function( v ){
+                        var Self = this;
+                    }
+                },
+                "methods" : {
+                    showmodal:function () {
+                        $("#mymodal").modal("show");
+                    },
+                    showhimodal:function () {
+                        $("#hiModal").modal("show");
+                    }
+                },
+                "ready" : function() {
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

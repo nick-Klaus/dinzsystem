@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        var pixclPatio = 1/window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,initial-scale='+pixclPatio+',minimum-scale='+pixclPatio+',maximum-scale='+pixclPatio+',user-scalable=no" />');
+        var html = document.getElementsByTagName("html")[0];
+        var pagewidth = html.getBoundingClientRect().width;
+        html.style.fontSize = pagewidth/16 + "px";
+    </script>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- <meta http-equiv="Cache-control" content="no-cache" /> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>bargain</title>
+    <meta name="keywords" content="  " />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//g.alicdn.com/thx/cube/1.3.1/cube.min.css">
+    <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__PUBLIC__/newstyle.css">
+</head>
+<body>
+    <form action="__URL__/add" method="POST">
+    <div id="main_index">
+        <div class="upload_pictures">
+            <input type="file" id="uploadphoto" name="uploadfile" value="请点击上传图片"  />
+        </div>
+        <div class="activitytitle">
+            <h5>活动标题</h5>
+            <textarea class="form-control activitybac fixed_width" rows="3" name="title" v-model="base.title"></textarea>
+        </div>
+        <div class="activitytitle">
+            <h5>活动时间</h5>
+            <input type="date" class="form-control activitybac fixed_width" placeholder="Text input">
+            <h5>到</h5>
+            <input type="date" class="form-control activitybac fixed_width" placeholder="Text input">
+            <p>建议活动时间5-7天</p>
+        </div>
+        <div class="activitytitle">
+            <div class="activitytitle fixed_width" style=" border-bottom: solid 1px 	#E8E8E8">
+                <label for="exampleInputName2" style="display: inline-block;width:auto">原价：</label>
+                <input type="number" class="form-control activitybac" min="1" max="10" id="exampleInputName2" placeholder="" style="display: inline-block;width:auto">
+                <label for="exampleInputEmail1" style="display: inline-block;width:auto">低价:</label>
+                <input type="number" class="form-control activitybac" id="exampleInputEmail1" placeholder="" style="display: inline-block;width:auto">
+            </div>
+            <div  class="activitytitle fixed_width" style=" border-bottom: solid 1px 	#E8E8E8">
+                <label for="exampleInputName3" style="display: inline-block;width:auto">帮砍次数：</label>
+                <input type="number" class="form-control activitybac" min="1" max="10" id="exampleInputName3" placeholder="" style="display: inline-block;width:auto">
+            </div>
+            <div class="activitytitle fixed_width">
+                <h5>减价范围：</h5>
+                <label for="exampleInputName4" style="display: inline-block;width:auto">最低：</label>
+                <input type="number" class="form-control activitybac" min="1" max="10" id="exampleInputName4" placeholder="" style="display: inline-block;width:auto">
+                <label for="exampleInputEmail2" style="display: inline-block;width:auto">最高:</label>
+                <input type="number" class="form-control activitybac" id="exampleInputEmail2" placeholder="" style="display: inline-block;width:auto">
+                <p>（原价-底价）÷大致帮减人数=帮减范围平均数，帮减范围 平均数-5=最小值，帮减范围平均数+5=最大值。建议设置 30-40人帮减即可减至底价.</p>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>奖品描述</h3>
+                <div>
+                    <label for="exampleInputName5" style="display: inline-block;width:auto">本期奖品数量</label>
+                    <input type="number" class="form-control borderdashed" min="1" max="10" id="exampleInputName5" placeholder="" style="display: inline-block;width:auto;background-color: #00a7e4;">
+                </div>
+                <div>
+                    <label for="exampleInputName6" style="display: inline-block;width:auto">最大报名人数</label>
+                    <input type="number" class="form-control borderdashed" min="1" max="10" id="exampleInputName6" placeholder="" style="display: inline-block;width:auto;background-color: #00a7e4;">
+                </div>
+                <p>奖品数量或报名数设置为0表示不限数量并也不会显示,上线活动更改奖品数量注意不能小于实际的已获奖人数</p>
+                <textarea class="form-control borderdashed" rows="3" style="width: 95%;background-color: #00a7e4;margin: 0 auto"></textarea>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter" >
+                <h3>活动规则</h3>
+                <textarea class="form-control borderdashed" rows="3" name="activity_rules" style="width: 95%;background-color: #00a7e4;margin: 0 auto;color: #fff">
+                    1.点击上方按钮"我也要玩"参加活动。
+                   2.朋友也能帮你减
+                   3.奖品数量有限,达标就会减少一份,份数领完则无法继续报名,亲速度哦!
+                </textarea>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>领奖信息</h3>
+                <textarea class="form-control borderdashed" rows="3" style="width: 95%;background-color: #00a7e4;margin: 0 auto;color: #fff">
+                    领奖时间:
+                    领奖地址:
+                    领奖电话:
+                </textarea>
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter">
+                <h3>机构介绍</h3>
+                <input type="email" class="form-control borderdashed" id="exampleInputEmail8" placeholder="此处填写机构介绍" style="width: 95%;background-color: #00a7e4;margin: 0 auto;height: 300px">
+            </div>
+        </div>
+        <div class="activitytitle">
+            <div class="activitycenter ">
+                <h3>咨询热线</h3>
+                <label for="exampleInputName7" style="display: inline-block;width:auto">手机号码：</label>
+                <input type="number" class="form-control borderdashed" min="1" max="10" id="exampleInputName7" placeholder="" style="display: inline-block;width:30%;background-color: #00a7e4;">
+                <p>客户可以通过此电话号码咨询活动事宜，建议留下手机号保持手机畅通。</p>
+            </div>
+        </div>
+        <div class="activitytitle" style="margin-bottom: 5%">
+            <div class="activitycenter">
+                <h3>当前排名</h3>
+                <table class="table">
+                    <tr>
+                        <td>排名</td>
+                        <td>姓名</td>
+                        <td>目前价格</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>小红</td>
+                        <td>99</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="background-color: #fff;padding: 1% 0;text-align: center;position: fixed;bottom: 0;width: 100%">
+            <button type="button" class="btn btn-default" style="width:45%">预览活动</button>
+            <button type="submit" class="btn btn-success " style="width: 45%" >保存活动</button>
+        </div>
+    </div>
+    </form>
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="__PUBLIC__/lrz.mobile.min.js"></script>
+    <script>
+        /*document.querySelector('#file').addEventListener('change', function () {
+            lrz(this.files[0])
+                    .then(function (rst) {
+                        // 处理成功会执行
+                    })
+                    .catch(function (err) {
+                        // 处理失败会执行
+                    })
+                    .always(function () {
+                        // 不管是成功失败，都会执行
+                    });
+        });*/
+        (function(){
+
+                var main = new Vue({
+                    "el" : "#main_index",
+                    "data" : {
+                        "base":{
+                            "image_logo":{},
+                            "title":'',
+                        }
+                    },
+                    "watch" : {
+                        "screen.major_categories" : function(){ this._init(1); }
+                        ,"base.order.tabs" : function( v ){
+                            var Self = this;
+                        }
+                    },
+                    "methods" : {
+                        // __POST:function () {
+                        //    $.ajax({
+                        //         type: "GET",
+                        //         url: "http://220660.vhost361.cloudvhost.cn/bargain/index.php/Home/BargainAdd/add",
+                        //         data: this.base,
+                        //         dataType:"json",
+                        //         success: function(data){
+                        //             if ( data) {
+                        //                 console.log(1111,data);
+                        //                 return false;
+                        //             }else{
+                        //                 console.log(2222,data);
+                        //                 var attstr= '<img src="'+data.url+'" alt="" />';
+                        //                 $(".imglist").append(attstr);
+                        //             }
+                        //         },
+                        //         // complete :function(XMLHttpRequest, textStatus){
+                        //         // },
+                        //         error:function(XMLHttpRequest, textStatus, errorThrown){ //上传失败
+                        //             console.log(XMLHttpRequest.status);
+                        //             console.log(XMLHttpRequest.readyState);
+                        //             console.log(textStatus);
+                        //         }
+                        //     });
+                        // },
+                    //     aaaaa:function () {
+                    //         $('#uploadphoto').localResizeIMG({
+                    //             width: 400,
+                    //             quality: 1,
+                    //             success: function (result) {
+                    //                 var submitData={
+                    //                     base64_string:result.clearBase64,
+                    //                 };
+                    //                 $.ajax({
+                    //                     type: "POST",
+                    //                     url: "upload.php",
+                    //                     data: submitData,
+                    //                     dataType:"json",
+                    //                     success: function(data){
+                    //                         if (0 == data.status) {
+                    //                             alert(data.content);
+                    //                             return false;
+                    //                         }else{
+                    //                             alert(data.content);
+                    //                             var attstr= '<img src="'+data.url+'" alt="" />';
+                    //                             $(".imglist").append(attstr);
+                    //                         }
+                    //                     },
+                    //                     complete :function(XMLHttpRequest, textStatus){
+                    //                     },
+                    //                     error:function(XMLHttpRequest, textStatus, errorThrown){ //上传失败
+                    //                         alert(XMLHttpRequest.status);
+                    //                         alert(XMLHttpRequest.readyState);
+                    //                         alert(textStatus);
+                    //                     }
+                    //                 });
+                    //             }
+                    //         });
+                    //     }
+
+                     },
+                    "ready" : function() {
+                    }
+                });
+        })();
+    </script>
+
+</body>
+</html>

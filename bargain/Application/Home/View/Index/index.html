@@ -1,0 +1,44 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Document</title>
+
+</head>
+<body>
+<table>
+<volist  name="user_list"  id="vo"  >
+<tr><td>大图</td> <td><input type="text"  name="image_logo" value="{$vo.image_logo}" class="form-control"></td></tr>
+<tr><td>标题</td> <td>__URL__</td></tr>
+
+<tr><td>原价</td> <td><input type="text"  name="original_price"  value="{$vo.original_price}" class="form-control"></td></tr>
+<tr><td>底价</td> <td><input type="text"  name="floor_price" value="{$vo.floor_price}" class="form-control"></td></tr>
+<tr><td>砍价次数</td> <td><input type="text"  name="bargain_times" value="{$vo.bargain_times}" class="form-control"></td></tr>
+<tr><td>现在价格</td> <td><input type="text"  name="new_price" value="{$vo.new_price}" class="form-control"></td></tr>
+
+<!-- <tr><td>最低减价</td> <td><input type="text"  name="min_sale" value="{$vo.min_sale}" class="form-control"></td></tr>
+<tr><td>最高减价</td> <td><input type="text"  name="max_sale" value="{$vo.max_sale}" class="form-control"></td></tr>
+ -->
+
+<tr><td><a href="__APP__/Home/BargainEditUser/edituser?id=268&bargain_id=1&original_price={$vo.original_price}&new_price={$vo.new_price}&floor_price={$vo.floor_price}">帮他砍价</a></td> <td></td></tr>
+
+
+<tr><td><a href="__APP__/Home/BargainAddUser/AddUser?user_id=1&original_price={$vo.floor_price}&floor_price={$vo.floor_price}&bargain_id=2">我也要玩</a></td> <td></td></tr>
+
+
+</volist>  
+
+
+<tr><td><form action="__APP__/Home/BargainAdd/uploads" enctype="multipart/form-data" method="post" >
+<input type="text" name="name" />
+<input type="file" name="photo" />
+
+<input type="submit" value="提交" >
+</form></td></tr>
+
+
+</table>
+
+</body>
+</html>

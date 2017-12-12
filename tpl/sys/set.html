@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ADD</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="./../../layui/css/layui.css?t=1479413779832"  media="all">
+  <link rel="stylesheet" href="./../../layui/css/global.css?t=1479413779832" media="all">
+   <script src="./../../layui/jquery.min.js" charset="utf-8"></script>
+  <script src="./../../layui/layui.js" charset="utf-8"></script>
+  
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin: 20px;">
+  <legend>系统配置</legend>
+  
+  
+  <form class="layui-form" action="" style="margin-top:20px">
+  <div class="layui-form-item">
+    <label class="layui-form-label">后台Logo</label>
+    <div class="layui-input-block">
+	
+	  <div style="height:60px;width:100%">
+	  
+	  </div>
+      <input type="text" name="title" id="title" lay-verify="title" autocomplete="off" placeholder="请上传图片" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">帐号</label>
+    <div class="layui-input-inline">
+      <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">联系人</label>
+    <div class="layui-input-inline">
+      <input type="tel" name="nickname" lay-verify="required" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">电话</label>
+    <div class="layui-input-inline">
+      <input type="text" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+
+  
+  <div class="layui-form-item">
+    <label class="layui-form-label">款式分类</label>
+    <div class="layui-input-block">
+      <input type="radio" name="categorytype" value="0" title="系统数据" checked="" />
+      <input type="radio" name="categorytype" value="1" title="自定义数据" />
+      <input type="radio" name="categorytype" value="2" title="系统+自定义数据" />
+    </div>
+  </div>
+  
+  
+    <div class="layui-form-item">
+    <label class="layui-form-label">裸石数据</label>
+    <div class="layui-input-block">
+      <input type="radio" name="diamond_data_typ" value="0" title="系统数据" checked="" />
+      <input type="radio" name="diamond_data_typ" value="1" title="自定义数据" />
+      <input type="radio" name="diamond_data_typ" value="2" title="系统+自定义数据"  />
+    </div>
+  </div>
+  
+  
+   <div class="layui-form-item">
+    <label class="layui-form-label">款式数据</label>
+    <div class="layui-input-block">
+      <input type="radio" name="datatype" value="0" title="系统数据" checked="" />
+      <input type="radio" name="datatype" value="1" title="自定义数据" />
+      <input type="radio" name="datatype" value="2" title="系统+自定义数据" />
+    </div>
+  </div>
+  
+  
+   <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">18K金价</label>
+      <div class="layui-input-inline">
+        <input type="text" name="number" lay-verify="required" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">PT950金价</label>
+      <div class="layui-input-block">
+        <input type="text" name="number" lay-verify="required" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">结算汇率</label>
+      <div class="layui-input-block">
+        <input type="text" name="number" lay-verify="required" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+  
+  
+</fieldset>
+
+<script>
+
+layui.use(['element','form', 'layedit', 'laydate'], function(){
+  var element = layui.element();
+  var form = layui.form()
+  ,layer = layui.layer;
+  
+  //创建一个编辑器
+
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //
+   $('#title').on('click',function(){
+				   
+				      layer.open({
+  type: 2,
+  title: '我的图片库',
+  shadeClose: true,
+  shade: 0.8,
+  area: ['50%', '50%'],
+  content: 'http://layer.layui.com/mobile/' //iframe的url
+}); 
+				   
+				   });
+  
+  
+  
+  
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  });
+  
+  
+});
+
+</script>
+
+
+</body>
+</html>
